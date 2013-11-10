@@ -1,0 +1,40 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+# Update interval in seconds
+update_interval 1.0
+total_run_times 0
+override_utf8_locale yes
+
+# pink: d91161
+# green: 60da11
+# blue: 1161d9
+# dark blue: 094CB0
+# bright blue: 4e9eee
+
+TEXT
+
+[
+# ---RAM---
+    { "full_text" : "mem", "color" : "\#4e9eee", "separator" : false },
+    { "full_text" : "${mem}", "color" : "\#5f5f5f",  "separator" : false },
+# ---LOAD---
+    { "full_text" : "proc", "color" : "\#4e9eee", "separator" : false},
+    { "full_text" : "${loadavg 1} ${loadavg 2}", "color" : "\#5f5f5f", "separator" : false},
+# ---DISK---
+    { "full_text" : "disk", "color" : "\#4e9eee", "separator" : false},
+    { "full_text" : "${fs_free_perc /}%", "color" : "\#5f5f5f", "separator" : false},
+# ---NET---
+    { "full_text" : "eth", "color" : ${if_existing /proc/net/route enp0s26u1u2u4u4}"\#60da11"${else}"\#d91161"${endif}, "separator" : false},
+    { "full_text" : "wifi", "color" : ${if_existing /proc/net/route wlp3s0}"\#60da11"${else}"\#d91161"${endif}, "separator" : false},
+# ---SND---
+#    { "full_text" : "vol", "color" : "\#60da11" },
+#    { "full_text" : "${mixer 'PCM'}" },
+# ---BAT---
+    { "full_text" : "bat", "color" : "\#d91161", "separator" : false},
+    { "full_text" : "${battery_percent BAT0}%", "color" : ${if_match ${battery_percent BAT0}<20}"\#ff0000"${else}"\#5f5f5f"${endif} , "separator" : false} ,
+# ---TIME---
+    { "full_text" : "${time %b %d %H:%M}" }
+],
