@@ -122,7 +122,7 @@ client.urgent           #d91161 #d91161 #ffffff #900000
 bar {
     font xft: Terminus 9
     status_command /home/binarypie/.i3/conky.sh
-    tray_output none
+    tray_output primary
     colors {
         #name               border  bg   text
         focused_workspace  #4e9eee #000000 #4e9eee

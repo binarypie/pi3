@@ -37,5 +37,5 @@ TEXT
     { "full_text":"wifi", "color":${if_existing /proc/net/route wlp3s0}"\#60da11"${else}"\#5f5f5f"${endif}, "separator":false},
 # ---TIME---
     { "full_text":"|", "color":"\#4e9eee", "separator":false},
-    { "full_text":"${time %b %d %H:%M}", "color":"\#5f5f5f", "separator":false}
+    { "full_text":"${time %b %d %I:%M}", "color":"\#5f5f5f", "separator":false}
 ],
