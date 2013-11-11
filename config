@@ -100,7 +100,6 @@ bindsym $mod+r mode "resize"
 ##############################
 # APPS
 ##############################
-for_window [class="Gmrun"] floating enable border none
 
 ##############################
 # COLORS
