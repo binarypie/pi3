@@ -16,6 +16,9 @@ override_utf8_locale yes
 
 TEXT
 [
+# ---TEMP---
+    { "full_text":"temp", "color":"\#4e9eee", "separator":false },
+    { "full_text":"${platform coretemp.0 temp 1}" , "color":"\#5f5f5f", "separator":false },
 # ---RAM---
     { "full_text":"mem", "color":"\#4e9eee", "separator":false },
     { "full_text":"${memperc}", "color":"\#5f5f5f",  "separator":false },
@@ -30,11 +33,15 @@ TEXT
     { "full_text":"${battery_percent BAT0}", "color":${if_match ${battery_percent BAT0}<10}"\#ff0000"${else}"\#5f5f5f"${endif} , "separator":false} ,
 # ---SND---
     { "full_text":"vol", "color":"\#4e9eee", "separator":false},
-    { "full_text":"${exec amixer get Master -M | grep -oE "[[:digit:]]*%" | grep -o "[0-9]*"}", "color":"\#5f5f5f", "separator":false},
+    { "full_text":"${exec amixer | grep -oE "[[:digit:]]*%" | grep -m1 -o "[0-9]*"}", "color":"\#5f5f5f", "separator":false},
+# ---BRT--
+    { "full_text":"brt", "color":"\#4e9eee", "separator":false},
+    { "full_text": "${exec ~/code/pi3/brt.sh}", "color": "\#5f5f5f", "separator":false},
 # ---NET---
     { "full_text":"net", "color":"\#4e9eee", "separator":false},
-    { "full_text":"eth", "color":${if_existing /proc/net/route enp0s26u1u2u4u4}"\#60da11"${else}"\#5f5f5f"${endif}, "separator":false},
-    { "full_text":"wifi", "color":${if_existing /proc/net/route wlp3s0}"\#60da11"${else}"\#5f5f5f"${endif}, "separator":false},
+    { "full_text":"eth", "color":${if_existing /proc/net/route eth_}"\#60da11"${else}"\#5f5f5f"${endif}, "separator":false},
+    { "full_text":"usb", "color":${if_existing /proc/net/route mob_}"\#60da11"${else}"\#5f5f5f"${endif}, "separator":false},
+    { "full_text":"wifi", "color":${if_existing /proc/net/route wifi}"\#60da11"${else}"\#5f5f5f"${endif}, "separator":false},
 # ---TIME---
     { "full_text":"|", "color":"\#4e9eee", "separator":false},
     { "full_text":"${time %b %d %I:%M}", "color":"\#5f5f5f", "separator":false}
