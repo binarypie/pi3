@@ -3,7 +3,7 @@ set $mod Mod4
 
 # Font
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:Inconsolata-g 10 
+font pango:Source Code Pro 16
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -15,7 +15,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -i -fn "Inconsolata-g 10" -nb "#000000" -nf "#888888" -sf "#4e9eee" -sb "#000000"
+bindsym $mod+d exec dmenu_run -i -fn "xft:Source Code Pro 16" -nb "#000000" -nf "#888888" -sf "#00afff" -sb "#000000"
 
 # change focus
 bindsym $mod+h focus left
@@ -117,25 +117,27 @@ focus_follows_mouse no
 # green: 60da11
 # blue: 1161d9
 # dark blue: 094CB0
-# bright blue: 4e9eee
+# bright blue: 00afff
 # class                 border  backgr. text    indicator
-client.focused          #4e9eee #000000 #4e9eee #4e9eee
-client.focused_inactive #000000 #000000 #888888 #292d2e
-client.unfocused        #000000 #000000 #888888 #292d2e
-client.urgent           #d91161 #d91161 #ffffff #900000
+client.focused          #000000 #0d1926 #00afff #000000
+client.focused_inactive #000000 #000000 #585858 #000000
+client.unfocused        #000000 #000000 #585858 #000000
+client.urgent           #000000 #8e44ad #9b49b6 #000000
 
 ##############################
 # BAR
 ##############################
 bar {
-    font xft: Inconsolata-g 10
+    font xft:Source Code Pro 16
     status_command /home/binarypie/.i3/conky.sh
     tray_output primary
     colors {
+        background #0d1926
+
         #name               border  bg   text
-        focused_workspace  #4e9eee #000000 #4e9eee
-        active_workspace   #000000 #000000 #4e9eee
-        inactive_workspace #000000 #000000 #5f5f5f
-        urgent_workspace   #000000 #d91161 #ffffff
+        focused_workspace  #000000 #000000 #00afff
+        active_workspace   #0d1926 #0d1926 #00afff
+        inactive_workspace #0d1926 #0d1926 #b3b3b3
+        urgent_workspace   #0d1926 #8e44ad #000000
    }
 }
